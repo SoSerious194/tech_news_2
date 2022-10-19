@@ -19,16 +19,17 @@ class NewsDetailPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => BookmarkCubit()..checkExists(doc),
       child: Scaffold(
-        backgroundColor: AppColors.primaryColor,
         appBar: CustomAppBar(
           color: Colors.transparent,
           title: AppStrings.article,
+          elevation: 0,
           centerTitle: true,
           leading: IconButton(
             onPressed: () => AppExtras.pop(context),
-            icon: const FaIcon(
+            icon: FaIcon(
               FontAwesomeIcons.arrowLeft,
               size: 20,
+              color: Theme.of(context).indicatorColor,
             ),
           ),
           actions: [BookmarkButton(doc: doc)],
@@ -146,9 +147,10 @@ class BookmarkButton extends StatelessWidget {
         }
         return IconButton(
           onPressed: () => bookmarkCubit.saveBookMark(doc),
-          icon: const FaIcon(
+          icon: FaIcon(
             FontAwesomeIcons.bookmark,
             size: 20,
+            color: Theme.of(context).indicatorColor,
           ),
         );
       },

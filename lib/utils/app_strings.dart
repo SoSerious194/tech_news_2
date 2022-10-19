@@ -26,6 +26,9 @@ class AppStrings {
   static String article = "Article";
   static String by = "by";
 
+  // Settings page
+  static String theme = "Switch Theme";
+
   // General string
   static String cancel = "Cancel";
   static String error = "Error!";

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tech_news_2/screens/bookmark_page.dart';
 import 'package:tech_news_2/screens/news_page.dart';
+import 'package:tech_news_2/screens/settings_page.dart';
 import 'package:tech_news_2/utils/app_colors.dart';
 import 'package:tech_news_2/utils/app_strings.dart';
 import 'package:tech_news_2/widgets/custom_appbar.dart';
@@ -15,16 +16,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
-  List<Widget> pages = [
-    const NewsPage(),
-    const BookmarkPage(),
-    Container(),
+  List<Widget> pages = const [
+    NewsPage(),
+    BookmarkPage(),
+    SettingsPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryColor,
       appBar: CustomAppBar(
         color: Colors.transparent,
         elevation: 0,
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
         child: BottomNavigationBar(
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          backgroundColor: AppColors.primaryColor,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           items: [
             BottomNavigationBarItem(
               label: AppStrings.homeItem,
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                   FontAwesomeIcons.house,
                   color: currentIndex == 0
                       ? AppColors.accentColor
-                      : AppColors.whiteColor,
+                      : Theme.of(context).indicatorColor,
                 ),
               ),
             ),
@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                   FontAwesomeIcons.bookmark,
                   color: currentIndex == 1
                       ? AppColors.accentColor
-                      : AppColors.whiteColor,
+                      : Theme.of(context).indicatorColor,
                 ),
               ),
             ),
@@ -85,10 +85,10 @@ class _HomePageState extends State<HomePage> {
                   }
                 },
                 child: FaIcon(
-                  FontAwesomeIcons.gear,
+                  FontAwesomeIcons.circleInfo,
                   color: currentIndex == 2
                       ? AppColors.accentColor
-                      : AppColors.whiteColor,
+                      : Theme.of(context).indicatorColor,
                 ),
               ),
             ),
