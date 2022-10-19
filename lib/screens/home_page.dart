@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tech_news_2/screens/bookmark_page.dart';
 import 'package:tech_news_2/screens/news_page.dart';
-import 'package:tech_news_2/screens/settings_page.dart';
+import 'package:tech_news_2/screens/about_page.dart';
 import 'package:tech_news_2/utils/app_colors.dart';
 import 'package:tech_news_2/utils/app_strings.dart';
 import 'package:tech_news_2/widgets/custom_appbar.dart';
@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   List<Widget> pages = const [
     NewsPage(),
     BookmarkPage(),
-    SettingsPage(),
+    AboutPage(),
   ];
 
   @override
