@@ -15,7 +15,7 @@ class AppStrings {
   // News page
   static String reviewRadar = "Review Radar";
   static String gadgets360 = "Gadgets360";
-  static String theVerge = "The Verge";
+  static String androidAuthority = "Android Authority";
   static String techCrunch = "Tech Crunch";
   static String fpt = "Front Page Tech";
   static String liveMint = "Live Mint";

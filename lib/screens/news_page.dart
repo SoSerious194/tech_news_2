@@ -48,7 +48,7 @@ class _NewsPageState extends State<NewsPage> with TickerProviderStateMixin {
                   style: AppStyles.tabStyle,
                 ),
                 Text(
-                  AppStrings.theVerge,
+                  AppStrings.androidAuthority,
                   style: AppStyles.tabStyle,
                 ),
                 Text(
@@ -72,7 +72,7 @@ class _NewsPageState extends State<NewsPage> with TickerProviderStateMixin {
               children: [
                 const ReviewRadarTab(),
                 RssTab(rssUrl: AppRSS.gadgets360),
-                RssTab(rssUrl: AppRSS.theVerge),
+                RssTab(rssUrl: AppRSS.androidAuthority),
                 RssTab(rssUrl: AppRSS.fpt),
                 RssTab(rssUrl: AppRSS.techCrunch),
                 RssTab(rssUrl: AppRSS.liveMint),
