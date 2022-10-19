@@ -12,4 +12,6 @@ class AppMethods {
       throw 'Could not launch $url';
     }
   }
+
+  static String getUid() => FirebaseAuth.instance.currentUser!.uid;
 }

@@ -28,13 +28,17 @@ class _RssWebViewPageState extends State<RssWebViewPage> {
         color: Colors.transparent,
         elevation: 0,
         leading: Container(
-          color: AppColors.whiteColor,
-          padding: const EdgeInsets.all(12),
-          child: IconButton(
-            onPressed: () => AppExtras.pop(context),
-            icon: FaIcon(
-              FontAwesomeIcons.arrowLeft,
-              color: AppColors.primaryColor,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50),
+            color: AppColors.whiteColor,
+          ),
+          child: Center(
+            child: InkWell(
+              onTap: () => AppExtras.pop(context),
+              child: FaIcon(
+                FontAwesomeIcons.arrowLeft,
+                color: AppColors.primaryColor,
+              ),
             ),
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tech_news_2/screens/bookmark_page.dart';
 import 'package:tech_news_2/screens/news_page.dart';
 import 'package:tech_news_2/utils/app_colors.dart';
 import 'package:tech_news_2/utils/app_strings.dart';
@@ -16,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
   List<Widget> pages = [
     const NewsPage(),
-    Container(),
+    const BookmarkPage(),
     Container(),
   ];
 
