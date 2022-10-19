@@ -19,7 +19,7 @@ class AboutPage extends StatelessWidget {
             const SizedBox(height: 12),
             ListTile(
               onTap: () async =>
-                  await AppMethods.openUrl(AppStrings.privacyPolicy),
+                  await AppMethods.openUrl(AppStrings.privacyUrl),
               title: Text(
                 AppStrings.privacyPolicy,
                 style: AppStyles.mediumTextStyleBold,
