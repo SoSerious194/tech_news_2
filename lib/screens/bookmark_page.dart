@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:tech_news_2/utils/app_methods.dart';
 
 import '../utils/app_extras.dart';
 import '../utils/app_strings.dart';
@@ -29,6 +30,8 @@ class _BookmarkPageState extends State<BookmarkPage> {
   void initState() {
     FirebaseFirestore.instance
         .collection('bookmarks')
+        .doc(AppMethods.getUid())
+        .collection("user_bookmarks")
         .snapshots()
         .listen((data) => onChangeData(data.docChanges));
 
@@ -77,12 +80,16 @@ class _BookmarkPageState extends State<BookmarkPage> {
       if (news.isEmpty) {
         querySnapshot = await FirebaseFirestore.instance
             .collection('bookmarks')
+            .doc(AppMethods.getUid())
+            .collection("user_bookmarks")
             .orderBy('timestamp', descending: true)
             .limit(10)
             .get();
       } else {
         querySnapshot = await FirebaseFirestore.instance
             .collection('bookmarks')
+            .doc(AppMethods.getUid())
+            .collection("user_bookmarks")
             .orderBy('timestamp', descending: true)
             .startAfterDocument(news[news.length - 1])
             .limit(5)

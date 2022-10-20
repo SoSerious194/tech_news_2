@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: pages[currentIndex],
       bottomNavigationBar: SizedBox(
-        height: 62,
+        height: 82,
         child: BottomNavigationBar(
           showSelectedLabels: false,
           showUnselectedLabels: false,

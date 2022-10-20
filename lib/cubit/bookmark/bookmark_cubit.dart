@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
+import 'package:tech_news_2/utils/app_methods.dart';
 
 part 'bookmark_state.dart';
 
@@ -13,6 +14,8 @@ class BookmarkCubit extends Cubit<BookmarkState> {
   Future<void> checkExists(DocumentSnapshot doc) async {
     QuerySnapshot querySnapshot = await FirebaseFirestore.instance
         .collection("bookmarks")
+        .doc(AppMethods.getUid())
+        .collection("user_bookmarks")
         .where("timestamp", isEqualTo: doc['timestamp'])
         .limit(1)
         .get();
@@ -24,7 +27,12 @@ class BookmarkCubit extends Cubit<BookmarkState> {
   }
 
   Future<void> saveBookMark(DocumentSnapshot doc) async {
-    await FirebaseFirestore.instance.collection("bookmarks").doc().set({
+    await FirebaseFirestore.instance
+        .collection("bookmarks")
+        .doc(AppMethods.getUid())
+        .collection("user_bookmarks")
+        .doc()
+        .set({
       "date": doc['date'],
       "headline": doc['headline'],
       "image": doc['image'],
@@ -39,6 +47,8 @@ class BookmarkCubit extends Cubit<BookmarkState> {
   Future<void> removeBookmark(DocumentSnapshot doc) async {
     QuerySnapshot querySnapshot = await FirebaseFirestore.instance
         .collection("bookmarks")
+        .doc(AppMethods.getUid())
+        .collection("user_bookmarks")
         .where("timestamp", isEqualTo: doc['timestamp'])
         .get();
     if (querySnapshot.docs.isNotEmpty) {
